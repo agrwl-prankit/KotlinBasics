@@ -1,5 +1,27 @@
 package com.prankit.kotlinbasics
 
+// Kotlin has the same basic loops as in Java -> for, while, and do-while
+
+/*
+    1. In Kotlin, we have the same while and do-while loops as in Java
+ */
+
+fun whileLoop(a: Int){
+    var abc = a
+    while (abc>5){
+        println("while loop")
+        abc --
+    }
+}
+
+fun doWhileLoop(a: Int){
+    var abc = a
+    do {
+        println("do-while loop")
+        abc--
+    } while (abc>5)
+}
+
 /*
     For loop looks a bit different.
     a different keyword is used to express iteration over something in where meets the element type.
@@ -61,6 +83,8 @@ fun forLoop4(){
 }
 
 fun main(){
+    whileLoop(8)
+    doWhileLoop(7)
     forLoop()
     forLoop2()
     forLoop3()
