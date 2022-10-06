@@ -21,7 +21,7 @@ fun main() {
         else -> println("Invalid Season")
     }
 
-// challenge - translate the if statement with the age to a when expression
+    // You can also check a value for being in or !in a range or a collection:
     var age = 17
     when (age) {
         // with the !in it's the same as saying not in ...
@@ -38,5 +38,42 @@ fun main() {
         is String -> println("$x is a String")
         else -> println("$x is none of the above")
     }
+
+    /*
+        In when statements, the else branch is mandatory in the following conditions:
+        1. when has a subject of an Boolean, enum, or sealed type, or their nullable counterparts.
+        2. branches of when don't cover all possible cases for this subject.
+     */
+
+    // To define a common behavior for multiple cases, combine their conditions in a single line with a comma:
+
+    when (x) {
+        0, 1 -> print("x == 0 or x == 1")
+        else -> print("otherwise")
+    }
+
+    // You can use arbitrary expressions (not only constants) as branch conditions
+
+    var s = ""
+    when (x) {
+        s.toInt() -> print("s encodes x")
+        else -> print("s does not encode x")
+    }
+
+    // you can access the methods and properties of the type without any extra checks.
+    fun hasPrefix(x: Any) = when(x) {
+        is String -> x.startsWith("prefix")
+        else -> false
+    }
+
+    // You can capture when subject in a variable using following syntax:
+    /*
+    fun Request.getBody() =
+        when (val response = executeRequest()) {
+            is Success -> response.body
+            is HttpError -> throw HttpException(response.status)
+        }
+
+     */
 }
 
